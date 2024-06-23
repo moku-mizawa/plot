@@ -8,11 +8,29 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enter a function to plot</h1>
+        <h1>Enter functions to plot</h1>
         <form method="post">
-            <input type="text" name="function" placeholder="e.g., x**2" required>
+            <div id="functions">
+                <input type="text" name="functions" placeholder="e.g., x**2" required>
+            </div>
+            <button type="button" onclick="addFunctionInput()">Add another function</button>
+            <br>
+            <input type="checkbox" name="smooth" id="smooth">
+            <label for="smooth">Smooth plot</label>
+            <br>
+            <input type="checkbox" name="grid" id="grid" checked>
+            <label for="grid">Show grid lines</label>
+            <br>
             <button type="submit">Plot</button>
         </form>
     </div>
+    <script>
+        function addFunctionInput() {
+            const div = document.createElement('div');
+            div.innerHTML = '<input type="text" name="functions" placeholder="e.g., sin(x)" required>';
+            document.getElementById('functions').appendChild(div);
+        }
+    </script>
 </body>
 </html>
+
